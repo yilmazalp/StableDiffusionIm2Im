@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AdCreative</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, textarea, p {
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+      h1 {
+      position: absolute;
+      margin: 0;
+      font-size: 32px;
+      color: #fff;
+      z-index: 2;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+      }
+      form {
+      width: 50%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 0 1px 0 #cc0052;
+      }
+      .banner {
+      position: relative;
+      height: 100px;
+      background-image: url("/static/uploaded_images/akademia.jpg");
+          background-size: cover;
+          background-color: orangered;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      }
+      .banner::after {
+      content: "";
+      background-color: rgba(0, 0, 0, 0.4);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      }
+      input, textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+      ::placeholder {
+      opacity: 0.75;
+      }
+
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+      .item:hover p, input:hover::placeholder {
+      color: #cc0052;
+      }
+      .item input:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 6px 0 #cc0052;
+      color: #cc0052;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #cc0052;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      button:hover {
+      background: #ff0066;
+      }
+
+      input[type=file]::file-selector-button {
+        border: 2px solid #cc0052;
+        padding: .2em .4em;
+        border-radius: .2em;
+        background-color: #cc0052;
+        transition: 1s;
+        color: white;
+}
+
+      input[type=file]::file-selector-button:hover {
+        background-color: #ff0066;
+        border: 2px solid #ff0066;
+}
+      @media (min-width: 568px) {
+      .name-item, .contact-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      }
+      .contact-item .item {
+      width: calc(50% - 8px);
+      }
+      .name-item input {
+      width: calc(50% - 20px);
+      }
+      .contact-item input {
+      width: calc(100% - 12px);
+      }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="testbox">
+      <form method=post enctype=multipart/form-data action="/">
+        <div class="banner">
+          <h1>Stable Diffusion</h1>
+        </div>
+        <div></div>
+          <br>
+          <p>Upload a file for the image</p>
+          <div class="file-image">
+              <input type=file name="image" required>
+          </div>
+          <br>
+          <p>Upload a file for the logo</p>
+          <div class="file-image">
+              <input type=file name="logo" required>
+          </div>
+        <div class="item">
+          <textarea rows="3" placeholder="Input the prompt" name = "prompt" required></textarea>
+        </div>
+        <div class="item">
+          <input type="text" placeholder="Input the hex code of colour in the image" name="colour_hex_code_in_image" required/>
+        </div>
+        <div class="item">
+          <input type="text" placeholder="Input the text of the button" name="button_text" maxlength="60" required/>
+        </div>
+        <div class="item">
+          <input type="text" placeholder="Input the text of the punchline" name="punchline_text" maxlength="80" required/>
+        </div>
+        <div class="item">
+          <input type="text" placeholder="Input the hex code of colour in the template" name="colour_hex_code_in_ad_template" required/>
+        </div>
+
+        <div class="btn-block">
+          <button type="submit" name="submit_button">Generate</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+
