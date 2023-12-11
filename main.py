@@ -13,6 +13,7 @@ from PIL import Image, ImageColor, ImageDraw, ImageFont
 import textwrap
 
 
+
 def get_image_file(file):
     return Image.open(file)
 
@@ -65,19 +66,20 @@ def generate_image(prompt, image):
     #model_id = "CompVis/stable-diffusion-v1-4"
     model_id = "runwayml/stable-diffusion-v1-5"
     pipe = StableDiffusionImg2ImgPipeline.from_pretrained(model_id, use_safetensors=True)
-    #pipe.save_pretrained("./stabilityai_cpu")
+    # we work on cuda
+    device = 'cuda'
 
     # we use the DPM Solver as a scheduler for accelerating CPU process
     pipe.scheduler = DPMSolverMultistepScheduler.from_config(pipe.scheduler.config)
 
-    # we work on cpu instead of cuda
-    pipe = pipe.to('cpu')
+    # we work on cuda
+    pipe = pipe.to(device)
 
     # token merging
     tomesd.apply_patch(pipe, ratio=0.5)
 
     # set the generator with manual seed in order to generate different images at each try
-    generator = torch.Generator('cpu').manual_seed(random.randint(1, 9999999999999))
+    generator = torch.Generator(device).manual_seed(random.randint(1, 9999999999999))
 
     # create negative prompt
     negative_prompt = create_negative_prompt()
