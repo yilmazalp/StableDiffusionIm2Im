@@ -62,9 +62,9 @@ def generate_image(prompt, image):
     #model_id = "stabilityai/stable-diffusion-2-1-base"
 
     # set the pipeline
-    model_id = "CompVis/stable-diffusion-v1-4"
-    #model_id = "runwayml/stable-diffusion-v1-5"
-    pipe = StableDiffusionImg2ImgPipeline.from_pretrained(model_id)
+    #model_id = "CompVis/stable-diffusion-v1-4"
+    model_id = "runwayml/stable-diffusion-v1-5"
+    pipe = StableDiffusionImg2ImgPipeline.from_pretrained(model_id, use_safetensors=True)
     #pipe.save_pretrained("./stabilityai_cpu")
 
     # we use the DPM Solver as a scheduler for accelerating CPU process
