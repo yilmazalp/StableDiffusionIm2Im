@@ -32,7 +32,6 @@ torchvision==0.16.0
 transformers==4.35.2
 typing-extensions==4.8.0
 urllib3==1.26.13
-uvicorn==0.12.2
 wheel==0.36.2
 yarl==1.9.3
 webcolors~=1.13
