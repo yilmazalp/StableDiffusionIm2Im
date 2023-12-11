@@ -1,20 +1,16 @@
 import gc
 import os
-import random, requests
+import random
 import tomesd
 import torch
-import openvino as ov
 from io import BytesIO
 from torch import autocast
 from torch.utils.data import DataLoader, Dataset, Subset
 from transformers import CLIPTextModel, CLIPTokenizer
 import webcolors
 from diffusers import StableDiffusionImg2ImgPipeline, UniPCMultistepScheduler, DPMSolverMultistepScheduler
-from diffusers import AutoencoderKL, UNet2DConditionModel, EulerDiscreteScheduler
-from optimum.intel import OVStableDiffusionImg2ImgPipeline, OVStableDiffusionXLImg2ImgPipeline
-from PIL import Image, ImageColor, ImageDraw, ImageFont, ImageFilter, ImageOps
-import textwrap, sys, os, cv2
-import numpy as np
+from PIL import Image, ImageColor, ImageDraw, ImageFont
+import textwrap
 
 
 def get_image_file(file):
