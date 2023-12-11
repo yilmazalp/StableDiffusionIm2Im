@@ -13,6 +13,7 @@ accelerate==0.24.1
 anyio==3.7.1
 certifi==2022.12.7
 charset-normalizer==2.1.1
+click>=8.1.3
 diffusers==0.23.1
 filelock==3.9.0
 fsspec==2023.10.0
