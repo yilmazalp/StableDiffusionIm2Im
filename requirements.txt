@@ -8,7 +8,6 @@ blinker>=1.6.2
 setuptools>=3.0
 MarkupSafe>=2.1.1
 colorama
-uvicorn==0.12.2
 accelerate==0.24.1
 anyio==3.7.1
 certifi==2022.12.7
